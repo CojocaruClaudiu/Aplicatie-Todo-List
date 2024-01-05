@@ -1,35 +1,40 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-
+<!-- COJOCARU CLAUDIU-MIHAIL-->
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link th:rel="stylesheet" th:href="@{/webjars/bootstrap/3.4.1/css/bootstrap.min.css} " />
-</head>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+    <title>Listă de activități</title>
 
+
+</head>
+ 
 <body>
     <div class="container">
-        <h1 class="text-center">Todo List</h1>
+        <h1 class="text-center">Listă de activități</h1>
         <hr />
-        <p th:text="|Happy ${today}|">Today</p>
+        <p th:text="|Astazi este ${today}|">Astăzi</p>
+        <p>Cojocaru Claudiu-Mihail</p>
         <table class="table table-bordered table-striped">
             <thead>
                 <tr>
-                    <th>Actions</th>
+                    <th>Acțiuni</th>
                     <th>Id</th>
-                    <th>Description</th>
-                    <th>Complete</th>
-                    <th>Created Date</th>
-                    <th>Modified Date</th>
+                    <th>Descriere</th>
+                    <th>Complet</th>
+                    <th>Data creării</th>
+                    <th>Data modificării</th>
                 </tr>
             </thead>
             <tbody>
                 <tr th:each="item : ${todoItems}" th:class="${item.complete} ? success : warning">
                     <td>
                         <div class="btn btn-group-sm" role="group">
-                            <a class="btn btn-info" th:href="@{/edit/{id}(id=${item.id})}">Edit</a>
-                            <a class="btn btn-danger" th:href="@{/delete/{id}(id=${item.id})}">Delete</a>
+                            <a class="btn btn-info" th:href="@{/edit/{id}(id=${item.id})}">Editează</a>
+                            <a class="btn btn-danger" th:href="@{/delete/{id}(id=${item.id})}">Șterge</a>
                         </div>
                     </td>
                     <td th:text="${item.id}">item_id</td>
@@ -41,7 +46,7 @@
             </tbody>
         </table>
 
-        <p><a class="btn btn-success" href="/create-todo">Add a Todo!</a></p>
+        <p><a class="btn btn-success" href="/create-todo">Adaugă o activitate!</a></p>
     </div>
 
     <script th:src="@{/webjars/jquery/3.6.0/jquery.min.js}"></script>

@@ -1,26 +1,30 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-
+<!-- COJOCARU CLAUDIU-MIHAIL-->
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link th:rel="stylesheet" th:href="@{/webjars/bootstrap/3.4.1/css/bootstrap.min.css} " />
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+   
+    <title>Add Todo Item</title>
 </head>
 
 <body>
     <div class="container">
         <div class="col-md-6">
-            <h1>Add a new Todo Item</h1>
+            <h1>Adăugați un nou element:</h1>
             <form action="#" th:action="@{/todo}" th:object="${todoItem}" method="POST">
                 <div class="form-group">
-                    <label for="description">Description</label>
+                    <label for="description">Descriere</label>
                     <input class="form-control" type="text" th:field="*{description}" id="description"
-                        placeholder="Description">
-                    <span th:if="${#fields.hasErrors('description')}" th:errors="*{description}"></span>
+                        placeholder="Descriere">
+                    <span th:if="${#fields.hasErrors('description')}" th:errors="*{description}"
+                        class="error-message"></span>
                 </div>
 
-                <button type="submit" class="btn btn-success">Add Todo!</button>
+                <button type="submit" class="btn btn-success">Adăugați!</button>
             </form>
         </div>
     </div>
